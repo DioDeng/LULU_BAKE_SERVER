@@ -15,6 +15,8 @@ router.get("/products", handErrorAsync(ProductControllers.getProducts));
 router.get("/product/:productId", handErrorAsync(ProductControllers.getProduct));
 router.post("/product", handErrorAsync(ProductControllers.createProduct));
 router.patch("/product/:productId", handErrorAsync(ProductControllers.updateProduct));
-router.delete("/product/:productId", handErrorAsync(ProductControllers.deleteProduct))
+router.delete("/product/:productId", handErrorAsync(ProductControllers.deleteProduct));
+
+
 
 module.exports = router;

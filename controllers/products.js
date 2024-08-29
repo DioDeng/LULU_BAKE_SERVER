@@ -39,6 +39,8 @@ const products= {
 
         resSuccess(res, 200, product);
     },
+    // 取得購物車詳細資訊
+    async getCarts(req, res, next) {},
     // 新增商品
     async createProduct(req, res, next) {
         const { title, category, comment, options, image, images, is_enable  } = req.body;
