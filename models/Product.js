@@ -12,7 +12,7 @@ const ProductSchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      enum: ["cake", "meal", "drink", "coffee"],
+      enum: ["cake", "meal", "drink", "coffee", "bread"],
       required: [true, "請輸入 產品分類"],
     },
     image: {
