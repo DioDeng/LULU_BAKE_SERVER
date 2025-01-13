@@ -5,8 +5,9 @@ const Order = require("../models/Order");
 const orders= {
     // 取得單一訂單
     async getOrder(req, res, next) {
+        
         const { orderId } = req.params;
-
+        console.log(orderId)
         const orderInfo = await Order.findById(orderId)
 
         if(!orderInfo) {
@@ -21,15 +22,18 @@ const orders= {
         if(productList.length === 0) {
             return next(appError(400, "購物車無商品！", next));
         }
-
+        let amount = 0;
+        productList.forEach((item) => {
+            amount += item.price * item.quantity
+        })
         const newOrder = await Order.create(
             {
                 payMethod,
                 mealStatus,
-                productList
+                productList,
+                amount
             }
         );
-
         resSuccess(res, 200, newOrder);
     },
     // 刪除一筆訂單
@@ -52,7 +56,7 @@ const orders= {
     async updateOrder(req, res, next) {
         const { orderId } = req.params;
         const { mealStatus } = req.body;
-        console.log(orderId, mealStatus)
+
         if(!mealStatus) {
             return next(appError(400, "欄位未填寫正確", next));
         }

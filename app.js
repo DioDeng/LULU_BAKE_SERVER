@@ -8,6 +8,8 @@ const { resErrorProd, resErrorDev } = require("./service/resErrors");
 
 const productsRouter = require("./routes/products");
 const ordersRouter = require("./routes/orders");
+const adminRouter = require("./routes/admin");
+const uploadRouter = require("./routes/upload");
 
 var app = express();
 
@@ -38,6 +40,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(productsRouter);
 app.use(ordersRouter);
+app.use(adminRouter);
+app.use(uploadRouter);
 
 // 404 錯誤
 app.use((req, res, next) => {

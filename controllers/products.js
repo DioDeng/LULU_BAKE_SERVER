@@ -76,9 +76,9 @@ const products= {
     // 修改產品
     async updateProduct(req, res, next) {
         const { productId } = req.params;
-        const { title, category, comments, options, image, images, is_enable } = req.body;
+        const { title, category, comment, options, image, images, is_enable } = req.body;
 
-        if(!title && !category && !comments  && !options && !image && !images) {
+        if(!title && !category && !comment  && !options && !image) {
             return next(appError(400, "欄位未填寫正確", next));
         }
 
@@ -129,7 +129,7 @@ const products= {
             {
                 title,
                 category,
-                comments,
+                comment,
                 image,
                 images,
                 is_enable

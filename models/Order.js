@@ -14,15 +14,22 @@ const OrderSchema = new mongoose.Schema(
       type: String,
       enum: ["shoppingOptions.paymethods.cash", "shoppingOptions.paymethods.linePay", "shoppingOptions.paymethods.catPay"],
     },
-    total: {
+    amount: {
       type: Number,
       require: [true, "請輸入 總金額"],
     },
+    transactionId: {
+      type: Number,
+    },
     productList: [
       {
-        flavor: {
+        name: {
           type: String,
           require: [true, "請輸入 商品 name"],
+        },
+        flavor: {
+          type: String,
+          require: [true, "請輸入 商品 flavor"],
         },
         type: {
           type: String,
@@ -40,9 +47,9 @@ const OrderSchema = new mongoose.Schema(
           type: Number,
           default: 0,
         },
-        qty: {
+        quantity: {
           type: Number,
-          require: [true, "請輸入 商品 qty"],
+          require: [true, "請輸入 商品 quantity"],
         },
         price: {
           type: Number,
@@ -54,6 +61,10 @@ const OrderSchema = new mongoose.Schema(
         },
       },
     ],
+    cookieId: {
+      type: Number,
+      default: Date.now,
+    },
     createTime: {
       type: Date,
       default: Date.now,

@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const resSuccess = require("../service/resSuccess");
 const handErrorAsync = require("../service/handErrorAsync");
 const appError = require("../service/appError");
-const User = require("../models/User");
+// const User = require("../models/User");
 const Admin = require("../models/Admin");
 
 
