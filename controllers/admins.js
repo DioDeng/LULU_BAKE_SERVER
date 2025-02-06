@@ -70,7 +70,7 @@ const admins = {
 
     // 取出 user 資料庫的指定資料
     const user = await Admin.findOne({ email }).select("+password");
-    console.log(123)
+    console.log('怪怪的')
     // 看此 Email 是否存在
     if (!user) {
       return next(appError(400, "此 user 不存在", next));
