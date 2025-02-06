@@ -70,18 +70,17 @@ const admins = {
 
     // 取出 user 資料庫的指定資料
     const user = await Admin.findOne({ email }).select("+password");
-    console.log('怪怪的')
     // 看此 Email 是否存在
     if (!user) {
       return next(appError(400, "此 user 不存在", next));
     }
-    console.log(user)
     // 比對密碼是否相符
     const auth = await bcrypt.compare(password, user.password);
+    console.log(auth)
     if (!auth) {
       return next(appError(400, "密碼錯誤！", next));
     }
-
+    console.log(auth)
     generateSendJWT(res, 200, user);
   },
   // 重設密碼
