@@ -77,7 +77,12 @@ const linepays = {
     const linePayRes = await axios.post(url, linePayBody, { headers });
 
     // 重新導向前端連結，讓前端重新戳api得到已付款資訊
+<<<<<<< HEAD
     res.redirect(`http://localhost:8080/#/order/${isOrderExist.cookieId}`)
+=======
+    // res.redirect(`http://localhost:8080/#/order/${isOrderExist.cookieId}`);
+    res.redirect(`https://diodeng.github.io/LULU_Bake_Front/#/order/${isOrderExist.cookieId}`);
+>>>>>>> 56c8f98 (debug)
   },
   // 建立訂單
   async createLinepay(req, res, next) {

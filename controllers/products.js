@@ -11,7 +11,7 @@ const products= {
         const sort = req.query.sort == "asc" ? "-createTime" : "createTime";
         // 關鍵字搜尋
         const keyword =
-        req.query.keyword !== 'undefined'
+        req.query.keyword !== undefined
             ? { category: new RegExp(req.query.keyword) }
             : {};
         if(!req.user) {

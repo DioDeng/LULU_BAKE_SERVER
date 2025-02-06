@@ -3,7 +3,10 @@ const router = express.Router();
 const OrderControllers = require("../controllers/orders");
 const LinepayContrillers = require('../controllers/linepays');
 const handErrorAsync = require("../service/handErrorAsync");
-// const { isAdmin } = require("../middleware/auth");
+const { isAdmin } = require("../middleware/auth");
+
+router.get("/orders", isAdmin, handErrorAsync(OrderControllers.getOrders));
+router.patch("/order/:orderId", isAdmin, handErrorAsync(OrderControllers.updateOrder));
 
 router.get("/order/:orderId", handErrorAsync(OrderControllers.getOrder));
 router.post("/order", handErrorAsync(OrderControllers.createOrder));
